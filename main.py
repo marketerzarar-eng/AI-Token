@@ -13,7 +13,7 @@ os.environ["QT_OPENGL"] = "software"
 os.environ["QT_QUICK_BACKEND"] = "software"
 
 # Now import Qt
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt6 import QtWidgets, QtCore, QtGui
 
 import sys
 import traceback

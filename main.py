@@ -5,6 +5,15 @@ Entry point. Wraps startup in a broad exception guard so packaging quirks
 (missing optional deps, etc.) never present as a silent crash — the user
 always gets a window or a clear message.
 """
+import os
+import sys
+
+# Force Qt to use Software Rendering if OpenGL/DirectX initialization fails
+os.environ["QT_OPENGL"] = "software"
+os.environ["QT_QUICK_BACKEND"] = "software"
+
+# Now import Qt
+from PyQt5 import QtWidgets, QtCore, QtGui
 
 import sys
 import traceback

@@ -27,7 +27,7 @@ PROJECT_ROOT = Path(SPECPATH).parent
 a = Analysis(
     [str(PROJECT_ROOT / "main.py")],
     pathex=[str(PROJECT_ROOT)],
-    binaries=pyqt6_binaries,
+    binaries=repo_dlls + pyqt6_binaries,
     datas=pyqt6_datas,
     hiddenimports=["tiktoken_ext.openai_public", "tiktoken_ext"] + pyqt6_hiddenimports
     hookspath=[],

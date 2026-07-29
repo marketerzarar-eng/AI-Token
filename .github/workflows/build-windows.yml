@@ -32,8 +32,7 @@ jobs:
 
       - name: Build Executable with PyInstaller
         run: |
-         pyinstaller --onefile --noconsole --collect-all PyQt6 --exclude-module PySide6 --exclude-module PySide2 --exclude-module PyQt5 main.py
-
+           pyinstaller build/token_auditor.spec --noconfirm
       - name: Upload Built Executable
         uses: actions/upload-artifact@v4
         with:

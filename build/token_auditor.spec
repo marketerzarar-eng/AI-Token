@@ -16,6 +16,9 @@
 
 import sys
 from pathlib import Path
+from PyInstaller.utils.hooks import collect_all
+
+pyqt6_datas, pyqt6_binaries, pyqt6_hiddenimports = collect_all('PyQt6')
 
 block_cipher = None
 
@@ -24,9 +27,9 @@ PROJECT_ROOT = Path(SPECPATH).parent
 a = Analysis(
     [str(PROJECT_ROOT / "main.py")],
     pathex=[str(PROJECT_ROOT)],
-    binaries=[],
-    datas=[],
-    hiddenimports=["tiktoken_ext.openai_public", "tiktoken_ext"],
+    binaries=pyqt6_binaries,
+    datas=pyqt6_datas,
+    hiddenimports=["tiktoken_ext.openai_public", "tiktoken_ext"] + pyqt6_hiddenimports
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
